@@ -49,7 +49,7 @@ ouput
 python -m torch.distributed.run --nproc_per_node=8 train_retrieval.py \
 --config ./configs/retrieval_car.yaml \
 --pretrained ./output/model_large.pth \
---output_dir output/retrieval_car_itm_add_mask_color_img_promot_node5_epoch15
+--output_dir output/retrieval_car
 ```
 
 
@@ -60,9 +60,9 @@ python -m torch.distributed.run --nproc_per_node=8 train_retrieval.py \
 # for test
 python -m torch.distributed.run --nproc_per_node=8 train_retrieval.py \
 --config ./configs/retrieval_car.yaml \
---pretrained ./output/retrieval_car_itm_add_mask_color_img_promot_node5_epoch15/checkpoint_best.pth \
---output_dir output/retrieval_car_itm_add_mask_color_img_promot_node5_epoch15 \
+--pretrained ./output/retrieval_car/checkpoint_best.pth \
+--output_dir output/retrieval_car \
 --evaluate
 ```
-
-The best score file name is "blip_retrieval_car_itm_add_mask_color_img_promot_node5_epoch15_infer_3_submit.json"
+The best score file name is "blip_retrieval_car_infer_3_submit.json".
+To conduct testing on the B-board, you need to modify the data directories in get_color_prediction.sh and BLIP/configs/retrieval_car.yaml again.
